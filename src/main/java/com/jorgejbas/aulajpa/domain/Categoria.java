@@ -1,4 +1,4 @@
-package com.jorgejbas.cursojpa.domain;
+package com.jorgejbas.aulajpa.domain;
 
 import java.io.Serializable;
 

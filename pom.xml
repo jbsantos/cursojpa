@@ -8,7 +8,7 @@
 		<version>1.5.21.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.jorgejbas.cursojpa</groupId>
+	<groupId>com.jorgejbas.aulajpa</groupId>
 	<artifactId>cursojpa</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>cursojpa</name>

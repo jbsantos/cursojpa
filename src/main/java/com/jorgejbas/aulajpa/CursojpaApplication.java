@@ -1,4 +1,4 @@
-package com.jorgejbas.cursojpa;
+package com.jorgejbas.aulajpa;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
