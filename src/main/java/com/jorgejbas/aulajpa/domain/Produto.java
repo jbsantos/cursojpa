@@ -14,6 +14,8 @@ import javax.persistence.ManyToMany;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class Produto implements Serializable{
 	
@@ -26,7 +28,7 @@ public class Produto implements Serializable{
 	private Double preco;
 	
 	//Muito para mauitos JoinTable da o nome para a tabela gerada no relacionamento
-	
+	@JsonBackReference
 	@ManyToMany
 	@JoinTable( name = "PRODUTO_CATEGORIA",
 		joinColumns = @JoinColumn(name = "produto_id"),

@@ -9,7 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import org.springframework.beans.factory.annotation.Autowired;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Categoria implements Serializable{
@@ -21,6 +22,7 @@ public class Categoria implements Serializable{
 	private int id;
 	private String nome;
 	
+	@JsonManagedReference
 	@ManyToMany(mappedBy="categorias")
 	private List<Produto> produto = new ArrayList<>();
 	
