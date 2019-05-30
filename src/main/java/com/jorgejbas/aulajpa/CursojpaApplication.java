@@ -13,6 +13,7 @@ import com.jorgejbas.aulajpa.domain.Cidade;
 import com.jorgejbas.aulajpa.domain.Cliente;
 import com.jorgejbas.aulajpa.domain.Endereco;
 import com.jorgejbas.aulajpa.domain.Estado;
+import com.jorgejbas.aulajpa.domain.ItemPedido;
 import com.jorgejbas.aulajpa.domain.Pagamento;
 import com.jorgejbas.aulajpa.domain.PagamentoComBoleto;
 import com.jorgejbas.aulajpa.domain.PagamentoComCartao;
@@ -25,6 +26,7 @@ import com.jorgejbas.aulajpa.repositories.CidadeRepository;
 import com.jorgejbas.aulajpa.repositories.ClienteRepository;
 import com.jorgejbas.aulajpa.repositories.EnderecoRepository;
 import com.jorgejbas.aulajpa.repositories.EstadoRepository;
+import com.jorgejbas.aulajpa.repositories.ItemPedidoRepository;
 import com.jorgejbas.aulajpa.repositories.PagamentoRepository;
 import com.jorgejbas.aulajpa.repositories.PedidoRepository;
 import com.jorgejbas.aulajpa.repositories.ProdutoRepository;
@@ -55,6 +57,9 @@ public class CursojpaApplication implements CommandLineRunner {
 	
 	@Autowired
 	private PedidoRepository pedidorepository;
+	
+	@Autowired
+	private ItemPedidoRepository itempedidorepository;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(CursojpaApplication.class, args);
@@ -124,6 +129,19 @@ public class CursojpaApplication implements CommandLineRunner {
 		
 		pedidorepository.save(Arrays.asList(ped1,ped2));
 		pagamentorepository.save(Arrays.asList(pagto1, pagto2));
+		
+		ItemPedido ip1 = new ItemPedido(p1, ped1, 0.00, 1, 2000.00);
+		ItemPedido ip2 = new ItemPedido(p3, ped1, 0.00, 2, 80.00);
+		ItemPedido ip3 = new ItemPedido(p2, ped2, 100.00, 1, 800.00);
+		
+		ped1.getItens().addAll(Arrays.asList(ip1,ip2));
+		ped2.getItens().addAll(Arrays.asList(ip3));
+		
+		p1.getItens().addAll(Arrays.asList(ip1));
+		p2.getItens().addAll(Arrays.asList(ip3));
+		p3.getItens().addAll(Arrays.asList(ip2));
+		
+		itempedidorepository.save(Arrays.asList(ip1,ip2,ip3));
 	}
 
 }
