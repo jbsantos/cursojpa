@@ -15,6 +15,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 public class Pedido  implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -22,10 +24,11 @@ public class Pedido  implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-	private Date instante;
 	
+	@JsonFormat(pattern="dd/MM/yyyy HH:mm")
+	private Date instante;
+
 	@OneToOne(cascade=CascadeType.ALL, mappedBy="pedido")
-	@JoinColumn(name="pedido_id")
 	private Pagamento pagamento;
 	
 	@ManyToOne
@@ -54,7 +57,7 @@ public class Pedido  implements Serializable {
 		
 	}
 
-@OneToMany(mappedBy="id.pedido")
+    @OneToMany(mappedBy="id.pedido")
 	public Set<ItemPedido> getItens() {
 		return itens;
 	}
