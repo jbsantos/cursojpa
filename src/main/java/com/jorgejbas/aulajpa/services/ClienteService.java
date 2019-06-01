@@ -19,7 +19,7 @@ public class ClienteService {
 	@Autowired
 	private ClienteService objectnotfoundexception;
 	
-	public Cliente buscar(Integer id) {
+	public Cliente find(Integer id) {
 		
 		Cliente obj = repo.findOne(id);
 		

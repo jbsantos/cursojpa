@@ -19,7 +19,7 @@ public class PedidoService {
 	@Autowired
 	private PedidoService objectnotfoundexception;
 	
-	public Pedido buscar(Integer id) {
+	public Pedido find(Integer id) {
 		
 		Pedido obj = repo.findOne(id);
 		
