@@ -69,15 +69,15 @@ public class CursojpaApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		
 		int indice = 0;
-		Categoria cat1 = new Categoria(0,"Informática");
-		Categoria cat2 = new Categoria (0,"escritório");
+		Categoria cat1 = new Categoria(null,"Informática");
+		Categoria cat2 = new Categoria (null,"escritório");
 		
-		Produto p1 = new Produto(1, "Computador", 2000.00);
-		Produto p2 = new Produto(2, "Impressora", 800.00);
-		Produto p3 = new Produto(3, "Mause", 80.00);	
+		Produto p1 = new Produto(null, "Computador", 2000.00);
+		Produto p2 = new Produto(null, "Impressora", 800.00);
+		Produto p3 = new Produto(null, "Mause", 80.00);	
 		
-		cat1.getProduto().addAll(Arrays.asList(p1,p2,p3));
-		cat2.getProduto().addAll(Arrays.asList(p2));
+		cat1.getProdutos().addAll(Arrays.asList(p1,p2,p3));
+		cat2.getProdutos().addAll(Arrays.asList(p2));
 		
 		
 		p1.getCategorias().addAll(Arrays.asList(cat1));
